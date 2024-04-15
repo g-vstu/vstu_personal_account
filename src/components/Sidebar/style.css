@@ -1,0 +1,32 @@
+.sidebar_container {
+  width: 25%;
+  background-color: #FAFAFA;
+}
+
+.sidebar-buttons-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dividing_line {
+  margin-bottom: 20px;
+  width: 80%;
+  height: 2px;
+  background-color: #F0F0F0;
+}
+
+@media screen  and (max-width: 1050px) {
+  .sidebar_container {
+    display: none;
+  }
+}
+
+@media screen  and (max-width: 786px) {
+
+}
+
+@media screen  and (max-width: 480px) {
+
+}

@@ -1,0 +1,117 @@
+.schedule-selectors-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.checkbox-container {
+  margin-left: 40px;
+  position: relative;
+}
+
+.schedule-checkbox {
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.checkbox-label_1 {
+  position: absolute;
+  top: -25px;
+  left: -40px;
+  z-index: 1;
+  color: #a2a2a2;
+}
+
+.checkbox-label_2 {
+  position: absolute;
+  top: -25px;
+  left: 40px;
+  z-index: 1;
+  color: #a2a2a2;
+}
+
+@media screen  and (max-width: 1513px) and (min-width: 913px){
+  .schedule-checkbox {
+    margin-top: 60px;
+  }
+
+  .checkbox-label_1 {
+    margin-top: 50px;
+    left:-22%;
+  }
+
+  .checkbox-label_2 {
+    margin-top: 50px;
+    left:98%;
+  }
+}
+
+@media screen  and (max-width: 910px) {
+  .schedule-selectors-container {
+    flex-direction: column;
+  }
+
+  .checkbox-container {
+    margin-top: 40px;
+    margin-left: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .checkbox-label_1 {
+    left: 30%;
+  }
+
+  .checkbox-label_2 {
+    left: 50%;
+  }
+
+  .schedule-checkbox {
+    margin-top: 3px;
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen  and (max-width: 520px) {
+  .schedule-selectors-container {
+    flex-direction: column;
+  }
+
+  .checkbox-container {
+    margin-top: 40px;
+    margin-left: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .checkbox-label_1 {
+    left: 30%;
+  }
+
+  .checkbox-label_2 {
+    left: 50%;
+  }
+
+  .schedule-checkbox {
+    margin-top: 3px;
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen  and ( max-width: 420px) {
+  .checkbox-label_1 {
+    left: 25%;
+  }
+
+  .checkbox-label_2 {
+    left: 50%;
+  }
+}

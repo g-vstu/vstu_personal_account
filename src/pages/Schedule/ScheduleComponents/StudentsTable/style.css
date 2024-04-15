@@ -1,0 +1,352 @@
+.schedule-table-block {
+  background-color: #F5F5F5;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  overflow-x: auto;
+}
+
+.no-lesson-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ebebeb;
+  border: 4px solid transparent;
+  background-clip: content-box;
+  top: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #495471;
+  border-radius: 29px;
+}
+
+.schedule-table {
+  background-color: #434C63;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.schedule-table_mobile {
+  display: none;
+}
+
+.table-header {
+  height: 60px;
+  font-size: 18px;
+  background-color: #434C63;
+}
+
+.table-header th:first-child {
+  border-top-left-radius: 12px;
+}
+
+.table-header th:last-child {
+  border-top-right-radius: 12px;
+}
+
+.table-header_item {
+  padding: 20px 20px;
+  color: #FFFFFF;
+  border-right: 1px solid #ffffff;
+}
+
+.table-body_row {
+  position: relative;
+}
+
+.table-body_row_item {
+  height: 60px;
+  text-align: center;
+  background-color: white;
+  border: 1px solid #E2E8F0;
+}
+
+.table-body_row_item.lesson_number {
+  width: 4%;
+}
+
+.lecture_row {
+  border-left: 5px solid #52f652;
+}
+
+.lab_work_row {
+  border-left: 5px solid #fd4b4b;
+}
+
+.practice_row {
+  border-left: 5px solid #ffb024;
+}
+
+.consultation_row {
+  border-left: 5px solid #52b7f6;
+}
+
+.exam_row {
+  border-left: 5px solid #1812d5;
+}
+
+/*.table-body_row_item.no_lessons {*/
+/*  border-left: 8px solid #a2a2a2;*/
+/*}*/
+
+.teacher_link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color linear .2s;
+}
+
+.teacher_link:hover {
+  color: #ffd03f;
+  text-decoration: underline;
+}
+
+.teacher_cell_img {
+  margin-right: 5px;
+  width: 45px;
+  height: 45px;
+}
+
+.teacher_cell_img:hover {
+  cursor: pointer;
+}
+
+.MONDAY, .WEDNESDAY, .FRIDAY, .SUNDAY {
+  background-color: #FFFFFF;
+}
+
+.TUESDAY, .THURSDAY, .SATURDAY {
+  background-color: #f1f1f1;
+}
+
+@media screen  and (max-width: 520px) {
+  .schedule-table-block {
+    overflow-x: hidden;
+  }
+
+  .schedule-table {
+    display: none;
+  }
+
+  .schedule-table_mobile {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    max-width: 420px;
+  }
+
+  .mobile-table-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-card {
+    margin-bottom: 35px;
+    width: 420px;
+    border: 1px solid #cecfd0;
+  }
+
+  .block_no_lessons {
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+
+  .card-divider {
+    margin-bottom: 20px;
+    width: 100%;
+    height: 1px;
+    background-color: #a2a2a2;
+  }
+
+  .card-inner {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card-text.discipline-name {
+    font-weight: 500;
+    font-size: 24px;
+    color: #494A4A;
+  }
+
+  .card-text-key {
+    color: #494A4A;
+    padding-right: 5px;
+  }
+
+  .card-text {
+    padding-left: 28px;
+    padding-bottom: 20px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #505050;
+  }
+
+  .block_description_name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+  }
+
+  .description_lesson_name {
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  .description_lesson_type {
+    margin: 0 10px;
+  }
+
+  .description_lesson_time {
+    margin: 13px 0;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .description_lesson_location {
+    margin: 0;
+    font-size: 16px;
+  }
+
+  .block_teacher_information {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .teacher_cell_img.mobile {
+    margin: 0;
+    width: 70px;
+    height: 70px;
+  }
+
+  .teacher_link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: color linear .2s;
+  }
+
+  .block_teacher_name {
+    margin: 7px 0 10px 0;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: 1px solid #cecfd0;
+    border-radius: 20px;
+  }
+
+  .mobile-group-span {
+    padding-right: 5px;
+  }
+
+  .mobile-teacher-span:nth-child(2) {
+    padding-right: 30px;
+  }
+
+  .lecture_row {
+    border-left: 8px solid #52f652;
+  }
+
+  .lab_work_row {
+    border-left: 8px solid #fd4b4b;
+  }
+
+  .practice_row {
+    border-left: 8px solid #ffb024;
+  }
+
+  .consultation_row {
+    border-left: 8px solid #52b7f6;
+  }
+
+  .exam_row {
+    border-left: 8px solid #1812d5;
+  }
+}
+
+@media screen  and ( max-width: 430px) {
+  .schedule-table_mobile {
+    margin-top: 40px;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    max-width: 320px;
+  }
+
+  .mobile-card {
+    margin-bottom: 35px;
+    width: 320px;
+    border: 1px solid #cecfd0;
+  }
+
+  .mobile-table-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-inner {
+    padding-top: 20px;
+  }
+
+  .card-text.discipline-name {
+    font-weight: 500;
+    font-size: 20px;
+    color: #494A4A;
+  }
+
+  .card-text-key {
+    color: #494A4A;
+    padding-right: 5px;
+  }
+
+  .card-text {
+    padding-left: 15px;
+    padding-bottom: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #505050;
+  }
+
+  .no-lesson-img {
+    width: 90%;
+    max-width: 90%;
+    height: auto;
+  }
+
+  .lecture_row {
+    border-left: 8px solid #52f652;
+  }
+
+  .lab_work_row {
+    border-left: 8px solid #fd4b4b;
+  }
+
+  .practice_row {
+    border-left: 8px solid #ffb024;
+  }
+
+  .consultation_row {
+    border-left: 8px solid #52b7f6;
+  }
+
+  .exam_row {
+    border-left: 8px solid #1812d5;
+  }
+}

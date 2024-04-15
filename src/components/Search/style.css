@@ -1,0 +1,70 @@
+.header-search-block {
+  position: relative;
+}
+
+.header-search_input {
+  padding-left: 45px;
+  width: 298px;
+  height: 36px;
+  font-size: 16px;
+  border: 1px solid #cbcbcb;
+  border-radius: 5px;
+  outline: none;
+}
+
+.header-search_input:focus {
+  border: 2px solid #434C63;
+}
+
+.header-search_icon {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  z-index: 17;
+}
+
+.profile-search-block {
+  display: none;
+}
+
+@media screen  and (max-width: 1050px) {
+  .header-search-block {
+    display: none;
+  }
+
+  .profile-search-block {
+    margin-bottom: 50px;
+    display: block;
+    position: relative;
+  }
+
+  .profile-search_input{
+    padding-left: 60px;
+    width: 100%;
+    height: 53px;
+    font-size: 18px;
+    border: 1px solid #a2a2a2;
+    border-radius: 5px;
+    outline: none;
+  }
+
+  .profile-search_icon{
+    position: absolute;
+    top: 30%;
+    left: 3%;
+    z-index: 17;
+  }
+}
+
+@media screen  and (max-width: 480px) {
+  .profile-search-block {
+    margin: 0 20px 70px 20px;
+  }
+
+  .profile-search_input{
+    padding-left: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+}
