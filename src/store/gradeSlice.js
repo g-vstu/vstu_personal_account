@@ -59,7 +59,7 @@ export const fetchAverageSemestrGrade = createAsyncThunk(
       };
 
       const {data} = await axios.get(
-        'https://student.vstu.by/api/grade/average',
+        'https://student.vstu.by/api/grade/average/semester',
         config
       );
 

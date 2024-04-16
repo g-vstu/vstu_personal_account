@@ -19,6 +19,7 @@ export const TeacherNavButtons = () => {
   const location = useLocation();
 
   const teacherFio = useSelector((state) => state.auth.userInfo.fio);
+  const userToken = useSelector((state) => state.auth.userToken);
 
   const handleLogout = () => {
     dispatch(logoutUser());
@@ -27,7 +28,7 @@ export const TeacherNavButtons = () => {
   };
 
   const getSchedule = () => {
-    dispatch(fetchTeacherSchedule(teacherFio));
+    dispatch(fetchTeacherSchedule({token:userToken,teacherFio:"'" +teacherFio+"'"}));
   }
 
   return (

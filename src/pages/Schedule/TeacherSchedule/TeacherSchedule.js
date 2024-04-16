@@ -16,11 +16,12 @@ export const TeacherSchedule = () => {
 
   const teacherName = useSelector((state) => state.auth.userInfo.fio);
   const scheduleType = useSelector((state) => state.weekData.scheduleType);
+  const userToken = useSelector((state) => state.auth.userToken);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchTeacherSessionSchedule(teacherName));
+    dispatch(fetchTeacherSessionSchedule({token:userToken,teacherFio:teacherName}));
   }, [teacherName]);
 
   return (

@@ -5,7 +5,6 @@ export const fetchStudentsSchedule = createAsyncThunk(
   `schedule/fetchStudentsSchedule`,
   async ({token,group}, {rejectWithValue}) => {
     try {
-
       const config = {
         headers: {
           'Content-type': "application/x-www-form-urlencoded",
@@ -44,15 +43,21 @@ export const fetchStudentsSessionSchedule = createAsyncThunk(
 
 export const fetchTeacherSchedule = createAsyncThunk(
   `schedule/fetchTeacherSchedule`,
-  async (teacherFio, {rejectWithValue}) => {
+  async ({token,teacherFio}, {rejectWithValue}) => {
     try {
-      const response = await axios.get(`https://student.vstu.by/api/schedule/teacherFIO?fio=${teacherFio}`);
+      const config = {
+        headers: {
+          'Content-type': "application/x-www-form-urlencoded",
+          'Authorization': `Bearer ${token}`,
+        },
+      };
 
-      if (response.status !== 200) {
-        throw new Error('Server error!')
-      }
+      const {data} = await axios.get(
+        `https://student.vstu.by/api/schedule/teacherFIO?fio=${teacherFio}`,
+        config
+      );
 
-      return response.data;
+      return data;
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -61,15 +66,23 @@ export const fetchTeacherSchedule = createAsyncThunk(
 
 export const fetchTeacherSessionSchedule = createAsyncThunk(
   `schedule/fetchTeacherSessionSchedule`,
-  async (teacherFio, {rejectWithValue}) => {
+  async ({token,teacherFio}, {rejectWithValue}) => {
     try {
-      const response = await axios.get(`https://student.vstu.by/api/schedule/teacherFIO/exam?fio=${teacherFio}`);
+      const config = {
+        headers: {
+          'Content-type': "application/x-www-form-urlencoded",
+          'Authorization': `Bearer ${token}`,
+        },
+      };
 
-      if (response.status !== 200) {
-        throw new Error('Server error!')
-      }
+      console.log(token)
+      console.log(teacherFio)
+      const {data} = await axios.get(
+        `https://student.vstu.by/api/schedule/teacherFIO/exam?fio=${teacherFio}`,
+        config
+      );
 
-      return response.data;
+      return data;
     } catch (error) {
       return rejectWithValue(error.message);
     }

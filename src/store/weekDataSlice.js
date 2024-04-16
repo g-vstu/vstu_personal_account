@@ -19,15 +19,21 @@ export const fetchWeekDay = createAsyncThunk(
 
 export const fetchWeekNumber = createAsyncThunk(
   'weekData/fetchWeekNumber',
-  async (_, {rejectWithValue}) => {
+  async (token, {rejectWithValue}) => {
     try {
-      const response = await axios.get('https://student.vstu.by/api/schedule/numberOfWeek');
+      const config = {
+        headers: {
+          'Content-type': "application/x-www-form-urlencoded",
+          'Authorization': `Bearer ${token}`,
+        },
+      };
 
-      if (response.status !== 200) {
-        throw new Error('Server error!');
-      }
+      const {data} = await axios.get(
+        'https://student.vstu.by/api/schedule/numberOfWeek',
+        config
+      );
 
-      return response.data;
+      return data;
     } catch (error) {
       return rejectWithValue(error.message)
     }
@@ -36,15 +42,21 @@ export const fetchWeekNumber = createAsyncThunk(
 
 export const fetchWeekName = createAsyncThunk(
   'weekData/fetchWeekName',
-  async (_, {rejectWithValue}) => {
+  async (token, {rejectWithValue}) => {
     try {
-      const response = await axios.get('https://student.vstu.by/api/schedule/nameOfWeek');
+      const config = {
+        headers: {
+          'Content-type': "application/x-www-form-urlencoded",
+          'Authorization': `Bearer ${token}`,
+        },
+      };
 
-      if (response.status !== 200) {
-        throw new Error('Server error!');
-      }
+      const {data} = await axios.get(
+        'https://student.vstu.by/api/schedule/nameOfWeek',
+        config
+      );
 
-      return response.data;
+      return data;
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -79,12 +91,12 @@ const weekDataSlice = createSlice({
     clearScheduleType(state) {
       state.scheduleType = 'ordinary-schedule';
     },
-    clearWeekData(state){
-      state.weekDay=null;
-      state.weekNumber=null;
-      state.weekName=null;
-      state.status=null;
-      state.scheduleType='ordinary-schedule'
+    clearWeekData(state) {
+      state.weekDay = null;
+      state.weekNumber = null;
+      state.weekName = null;
+      state.status = null;
+      state.scheduleType = 'ordinary-schedule'
     }
   },
   extraReducers: (builder) => {
