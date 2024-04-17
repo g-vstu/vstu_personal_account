@@ -40,10 +40,10 @@ export const StudentNavButtons = () => {
   };
 
   const handleScheduleInfo = () => {
-    dispatch(fetchStudentsSchedule(userToken, studentGroup.group.name));
-    dispatch(fetchWeekDay(userToken));
-    dispatch(fetchWeekNumber(userToken));
-    dispatch(fetchWeekName(userToken));
+    dispatch(fetchStudentsSchedule( studentGroup.group.name));
+    dispatch(fetchWeekDay());
+    dispatch(fetchWeekNumber());
+    dispatch(fetchWeekName());
   };
 
   const handleGradesInfo = () => {

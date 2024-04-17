@@ -31,9 +31,6 @@ export const StatisticTable = () => {
     );
   }
 
-
-  console.log(allGrades);
-
   return (
     <>
       <div className="schedule-table-block">

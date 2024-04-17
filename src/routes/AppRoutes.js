@@ -35,6 +35,7 @@ const AppRoutes = ({isAuthenticated, roles}) => {
           <Route path="/" element={<MainLayout role={userRoleNumber}/>}>
             <Route index element={<StudentProfile/>}/>
             <Route path="/schedule" element={<StudentsSchedule/>}/>
+            <Route path="/schedule/teacher/:teacherName" element={<TeacherSchedule/>}/>
             <Route path="/statistic" element={<Statistic/>}/>
             <Route path="*" element={<Navigate to="/" replace={true}/>}/>
           </Route>

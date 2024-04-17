@@ -21,7 +21,7 @@ export const TeacherSchedule = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchTeacherSessionSchedule({token:userToken,teacherFio:teacherName}));
+    dispatch(fetchTeacherSessionSchedule(teacherName));
   }, [teacherName]);
 
   return (

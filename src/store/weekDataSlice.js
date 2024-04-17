@@ -3,9 +3,9 @@ import axios from 'axios';
 
 export const fetchWeekDay = createAsyncThunk(
   'weekData/fetchWeekDay',
-  async (token, {rejectWithValue}) => {
+  async (_, {rejectWithValue}) => {
     try {
-      const response = await axios.get('https://student.vstu.by/api/schedule/day');
+      const response = await axios.get('https://schedule.vstu.by/api/schedule/day');
 
       if (response.status !== 200) {
         throw new Error('Server error!');
@@ -19,21 +19,15 @@ export const fetchWeekDay = createAsyncThunk(
 
 export const fetchWeekNumber = createAsyncThunk(
   'weekData/fetchWeekNumber',
-  async (token, {rejectWithValue}) => {
+  async (_, {rejectWithValue}) => {
     try {
-      const config = {
-        headers: {
-          'Content-type': "application/x-www-form-urlencoded",
-          'Authorization': `Bearer ${token}`,
-        },
-      };
+      const response = await axios.get('https://schedule.vstu.by/api/schedule/numberOfWeek');
 
-      const {data} = await axios.get(
-        'https://student.vstu.by/api/schedule/numberOfWeek',
-        config
-      );
+      if (response.status !== 200) {
+        throw new Error('Server error!');
+      }
 
-      return data;
+      return response.data;
     } catch (error) {
       return rejectWithValue(error.message)
     }
@@ -42,21 +36,15 @@ export const fetchWeekNumber = createAsyncThunk(
 
 export const fetchWeekName = createAsyncThunk(
   'weekData/fetchWeekName',
-  async (token, {rejectWithValue}) => {
+  async (_, {rejectWithValue}) => {
     try {
-      const config = {
-        headers: {
-          'Content-type': "application/x-www-form-urlencoded",
-          'Authorization': `Bearer ${token}`,
-        },
-      };
+      const response = await axios.get('https://schedule.vstu.by/api/schedule/nameOfWeek');
 
-      const {data} = await axios.get(
-        'https://student.vstu.by/api/schedule/nameOfWeek',
-        config
-      );
+      if (response.status !== 200) {
+        throw new Error('Server error!');
+      }
 
-      return data;
+      return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
     }

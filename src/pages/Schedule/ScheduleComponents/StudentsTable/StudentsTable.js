@@ -70,6 +70,7 @@ export const StudentsTable = ({ scheduleData, isCorrespondenceSchedule }) => {
   };
 
   const handleTeacherScheduleNavigate = (teacherFio) => {
+    console.log(teacherFio);
     dispatch(fetchTeacherSchedule("'" + teacherFio + "'"));
     dispatch(setTeacherFio(teacherFio));
     dispatch(clearGroup());

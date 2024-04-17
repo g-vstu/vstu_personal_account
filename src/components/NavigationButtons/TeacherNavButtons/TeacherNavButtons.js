@@ -28,7 +28,8 @@ export const TeacherNavButtons = () => {
   };
 
   const getSchedule = () => {
-    dispatch(fetchTeacherSchedule({token:userToken,teacherFio:"'" +teacherFio+"'"}));
+    console.log('cscacf')
+    dispatch(fetchTeacherSchedule("'" +teacherFio+"'"));
   }
 
   return (
