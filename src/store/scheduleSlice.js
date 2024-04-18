@@ -70,6 +70,30 @@ export const fetchTeacherSessionSchedule = createAsyncThunk(
   }
 );
 
+export const fetchTeacherAccountSchedule = createAsyncThunk(
+  `schedule/fetchTeacherAccountSchedule`,
+  async (token, {rejectWithValue}) => {
+    try {
+
+      const config = {
+        headers: {
+          'Content-type': "application/x-www-form-urlencoded",
+          'Authorization': `Bearer ${token}`,
+        },
+      };
+
+      const {data} = await axios.get(
+        'https://schedule.vstu.by/api/schedule/teacher',
+        config
+      );
+
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 const initialState = {
   studentsScheduleData: [],
   studentsScheduleSessionData:[],
@@ -149,6 +173,17 @@ const scheduleSlice = createSlice({
       })
       .addCase(fetchTeacherSessionSchedule.rejected, (state) => {
         state.teacherScheduleSessionStatus = 'rejected';
+      })
+      .addCase(fetchTeacherAccountSchedule.pending, (state) => {
+        state.teacherScheduleStatus = 'loading';
+        state.teacherScheduleError = null;
+      })
+      .addCase(fetchTeacherAccountSchedule.fulfilled, (state, action) => {
+        state.teacherScheduleStatus = 'resolved';
+        state.teacherScheduleData = action.payload;
+      })
+      .addCase(fetchTeacherAccountSchedule.rejected, (state) => {
+        state.teacherScheduleStatus = 'rejected';
       })
   })
 });

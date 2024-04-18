@@ -7,7 +7,7 @@ import { TeacherTable } from '../ScheduleComponents/TeacherTable';
 import { ScheduleSelectors } from '../ScheduleComponents/ScheduleSelectors';
 import { SessionTable } from '../ScheduleComponents/SessionTable';
 
-import { fetchTeacherSessionSchedule } from '../../../store/scheduleSlice';
+import {fetchTeacherAccountSchedule, fetchTeacherSessionSchedule} from '../../../store/scheduleSlice';
 
 import './style.css';
 
@@ -21,6 +21,7 @@ export const TeacherSchedule = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(fetchTeacherAccountSchedule(userToken));
     dispatch(fetchTeacherSessionSchedule(teacherName));
   }, [teacherName]);
 

@@ -11,7 +11,11 @@ import userIcon from '../../../assets/images/buttonIcons/User.svg';
 import calendarIcon from '../../../assets/images/buttonIcons/Calendar.svg';
 import userManualIcon from '../../../assets/images/buttonIcons/InfoSquare.svg';
 import logoutIcon from '../../../assets/images/buttonIcons/Logout.svg';
-import {fetchTeacherSchedule, fetchTeacherWeekSchedule} from "../../../store/scheduleSlice";
+import {
+  fetchTeacherAccountSchedule,
+  fetchTeacherSchedule,
+  fetchTeacherWeekSchedule
+} from "../../../store/scheduleSlice";
 
 export const TeacherNavButtons = () => {
   const dispatch = useDispatch();
@@ -29,7 +33,7 @@ export const TeacherNavButtons = () => {
 
   const getSchedule = () => {
     console.log('cscacf')
-    dispatch(fetchTeacherSchedule("'" +teacherFio+"'"));
+    dispatch(fetchTeacherAccountSchedule());
   }
 
   return (
