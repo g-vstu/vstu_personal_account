@@ -1,6 +1,6 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {Link, useLocation, useNavigate} from 'react-router-dom';
+import { useLocation, useNavigate} from 'react-router-dom';
 
 import {NavigationButton} from '../NavigationButton';
 
@@ -10,6 +10,7 @@ import {clearSchedule, fetchStudentsSchedule} from '../../../store/scheduleSlice
 import {persistor} from '../../../store';
 import {clearStudentInfo} from '../../../store/studentSlice';
 import {logoutUser} from '../../../store/authSlice';
+import {fetchAbsences} from '../../../store/absencesSlice';
 
 import userIcon from '../../../assets/images/buttonIcons/User.svg';
 import calendarIcon from '../../../assets/images/buttonIcons/Calendar.svg';
@@ -52,6 +53,10 @@ export const StudentNavButtons = () => {
     dispatch(fetchAverageSemestrGrade(userToken));
   }
 
+  const handleAbsencesInfo = () => {
+    dispatch(fetchAbsences(userToken));
+  }
+
   return (
     <>
       <div className="sidebar">
@@ -60,9 +65,10 @@ export const StudentNavButtons = () => {
                           isActive={location.pathname === '/schedule'}/>
         <NavigationButton to="/statistic" clickFunction={handleGradesInfo} icon={statisticIcon} text="Статистика"
                           isActive={location.pathname === '/statistic'}/>
-        <NavigationButton to="/attendance" icon={attendanceIcon} text="Посещения занятий"
+        <NavigationButton to="/attendance"  icon={attendanceIcon} text="Посещения занятий"
                           isActive={location.pathname === '/attendance'}/>
-        <NavigationButton to="/debts" icon={debtsIcon} text="Задолжности" isActive={location.pathname === '/debts'}/>
+        <NavigationButton to="/debts" clickFunction={handleAbsencesInfo} icon={debtsIcon} text="Задолжности"
+                          isActive={location.pathname === '/debts'}/>
         <div className="dividing_line"></div>
         <NavigationButton to="/manual" icon={userManualIcon} text="Руководство пользователя"
                           isActive={location.pathname === '/manual'}/>

@@ -22,6 +22,11 @@ export const lessonAbbreviations = [
   {typeClassName: 'Защита курсовой', abbreviation: 'Защита курсовой'},
 ];
 
+export const lessonTypes = [
+  {abbreviation: 'PRACTICE', holeName: 'Практика'},
+  {abbreviation: 'LAB', holeName: 'Лабораторная'}
+];
+
 export const lessonTimes = [
   {lessonNumber: 1, lessonTime: '8:00 - 9:35'},
   {lessonNumber: 2, lessonTime: '9:50 - 11:25'},
@@ -45,4 +50,20 @@ export const russianToEnglishWeekdays = [
 export const russianToEnglishScheduleTypes = [
   {typeInRussian: 'Обычное', typeInEnglish: 'ordinary-schedule'},
   {typeInRussian: 'Сессия', typeInEnglish: 'session-schedule'},
+];
+
+
+export const russianToEnglishMonth = [
+  {monthInRussian: 'Январь', monthInEnglish: 'January'},
+  {monthInRussian: 'Февраль', monthInEnglish: 'February'},
+  {monthInRussian: 'Март', monthInEnglish: 'March'},
+  {monthInRussian: 'Апрель', monthInEnglish: 'April'},
+  {monthInRussian: 'Май', monthInEnglish: 'May'},
+  {monthInRussian: 'Июнь', monthInEnglish: 'June'},
+  {monthInRussian: 'Июль', monthInEnglish: 'July'},
+  {monthInRussian: 'Август', monthInEnglish: 'August'},
+  {monthInRussian: 'Сентябрь', monthInEnglish: 'September'},
+  {monthInRussian: 'Октябрь', monthInEnglish: 'October'},
+  {monthInRussian: 'Ноябрь', monthInEnglish: 'November'},
+  {monthInRussian: 'Декабрь', monthInEnglish: 'December'},
 ];

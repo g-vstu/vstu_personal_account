@@ -8,6 +8,8 @@ import {MainLayout} from '../layouts/MainLayout';
 import {StudentsSchedule} from '../pages/Schedule/StudentsSchedule';
 import {TeacherSchedule} from '../pages/Schedule/TeacherSchedule';
 import {Statistic} from '../pages/Statistic';
+import {ClassAttendance} from "../pages/classAttendance";
+import {Debts} from "../pages/Debts";
 
 const AppRoutes = ({isAuthenticated, roles}) => {
   const [userRoleNumber, setUserRoleNumber] = useState(null);
@@ -37,6 +39,8 @@ const AppRoutes = ({isAuthenticated, roles}) => {
             <Route path="/schedule" element={<StudentsSchedule/>}/>
             <Route path="/schedule/teacher/:teacherName" element={<TeacherSchedule/>}/>
             <Route path="/statistic" element={<Statistic/>}/>
+            <Route path="/attendance" element={<ClassAttendance />}/>
+            <Route path="/debts" element={<Debts />}/>
             <Route path="*" element={<Navigate to="/" replace={true}/>}/>
           </Route>
         </>

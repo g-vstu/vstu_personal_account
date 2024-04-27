@@ -21,6 +21,7 @@ export const Statistic = () => {
   const averageGrade = useSelector((state) => state.grades.averageGrade);
   const semestrAverageGrade = useSelector((state) => state.grades.semestrAverageGrade);
 
+  console.log(averageGrade)
   return (
     <>
       {gradesStatus === 'loading' || averageGradeStatus === 'loading' || semestrAverageGradeStatus === 'loading' &&

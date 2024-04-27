@@ -1,4 +1,10 @@
-import {lessonAbbreviations, lessonTimes, russianToEnglishScheduleTypes, russianToEnglishWeekdays} from './arrays';
+import {
+  lessonAbbreviations,
+  lessonTimes, lessonTypes,
+  russianToEnglishMonth,
+  russianToEnglishScheduleTypes,
+  russianToEnglishWeekdays
+} from './arrays';
 
 export const reverseDateForTable = (date) => {
   if (date === null) {
@@ -6,7 +12,7 @@ export const reverseDateForTable = (date) => {
   }
 
   return date.split('-').reverse().join('.');
-}
+};
 
 export const filterSchedule = (day, week, name, scheduleArray) => {
   if (day === 'ALL') {
@@ -120,7 +126,7 @@ export const generateClassName = (typeClassName) => {
   }
 };
 
-export const matchScheduleType=(scheduleType)=>{
+export const matchScheduleType = (scheduleType) => {
   const match = russianToEnglishScheduleTypes.find((item) => item.typeInEnglish === scheduleType);
   return match ? match.typeInRussian : '';
 }
@@ -156,4 +162,44 @@ export const shortenDisciplineName = (fullName) => {
 
 export const matchSelectScheduleType = (type) => {
   return type === 'ordinary-schedule' ? 'Обычное' : 'Сессия';
+}
+
+export const getCurrentMonth = () => {
+  const date = new Date();
+  return date.toLocaleString('en-US', {month: 'long'});
+}
+
+export const getCurrentYear = () => {
+  const date = new Date();
+  return date.getFullYear();
+}
+
+export const matchMonths = (month) => {
+  const match = russianToEnglishMonth.find((item) => item.monthInEnglish === month);
+  return match ? match.monthInRussian : '';
+}
+
+export const matchMonths2 = (month) => {
+  const match = russianToEnglishMonth.find((item) => item.monthInRussian === month);
+  return match ? match.monthInEnglish : '';
+}
+
+export const compareTypes = (shortenType) => {
+  const match = lessonTypes.find((item) => item.abbreviation === shortenType);
+  return match ? match.holeName : '';
+};
+
+
+export const getCurrentDate = () => {
+  const weekdays = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+  const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+
+  const currentDate = new Date();
+
+  const dayOfWeek = weekdays[currentDate.getDay()];
+  const dayOfMonth = currentDate.getDate();
+  const month = months[currentDate.getMonth()];
+  const year = currentDate.getFullYear();
+
+  return `${dayOfWeek}, ${dayOfMonth} ${month} ${year}`;
 }
