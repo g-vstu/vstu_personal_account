@@ -12,7 +12,7 @@
   border-radius: 12px;
 }
 
-.student-info-header:after{
+.student-info-header:after {
   margin-bottom: 30px;
   content: '';
   display: block;
@@ -101,4 +101,68 @@
   padding-bottom: 20px;
   font-size: 18px;
   font-weight: 400;
+}
+
+@media screen  and (max-width: 930px) {
+  .profile-container {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .student-info {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .notifications {
+    width: 100%;
+  }
+}
+
+@media screen  and (max-width: 520px) {
+  .student-name {
+    margin-bottom: 10px;
+    font-size: 22px;
+  }
+
+  .current-date {
+    margin-bottom: 15px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #B7B7B7;
+  }
+
+  .student-info-header:after {
+    margin-bottom: 20px;
+  }
+
+  .student-info-row {
+    margin-bottom: 10px;
+  }
+
+  .student-info-row-name {
+    font-size: 15px;
+  }
+
+  .student-info-row-data {
+    font-size: 15px;
+  }
+
+  .notifications-title {
+    font-size: 18px;
+  }
+
+  .see-all {
+    font-size: 16px;
+  }
+
+  .notification-title {
+    margin-bottom: 12px;
+    font-size: 16px;
+  }
+
+  .notification-text {
+    font-size: 14px;
+  }
 }

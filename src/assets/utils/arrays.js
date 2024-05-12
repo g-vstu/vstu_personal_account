@@ -11,6 +11,7 @@ export const tableHeaderStudentSession = ['Дата', 'День', 'Время', 
 
 
 export const tableHeaderGrades = ['Наименование работы', 'Дисциплина', 'Оценка', 'Преподаватель', 'Дата'];
+export const tableHeaderAttendances = ['Тип занятия', 'Дисциплина', 'Тема занятия', 'Преподаватель', 'Дата'];
 
 export const lessonAbbreviations = [
   {typeClassName: 'Лекция', abbreviation: 'Лекция'},
@@ -24,7 +25,8 @@ export const lessonAbbreviations = [
 
 export const lessonTypes = [
   {abbreviation: 'PRACTICE', holeName: 'Практика'},
-  {abbreviation: 'LAB', holeName: 'Лабораторная'}
+  {abbreviation: 'LAB', holeName: 'Лабораторная'},
+  {abbreviation: 'LECTURE', holeName: 'Лекция'},
 ];
 
 export const lessonTimes = [

@@ -1,6 +1,5 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import axios from 'axios';
-import {getCurrentMonth} from "../assets/utils/functions";
 
 export const fetchAbsences = createAsyncThunk(
   `absences/fetchAbsences`,

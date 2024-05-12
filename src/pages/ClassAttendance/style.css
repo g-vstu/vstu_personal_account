@@ -1,0 +1,30 @@
+.no-attendance{
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  font-size: 26px;
+  color: #434C63;
+  border: 1px solid #434C63;
+  text-align: center;
+}
+
+.attendance-title{
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #434C63;
+}
+
+.mobile-attendance{
+  display: none;
+}
+
+@media screen  and (max-width: 520px) {
+  .no-attendance{
+    justify-content: flex-start;
+  }
+
+  .mobile-attendance{
+    display: flex;
+    flex-direction: column;
+  }
+}

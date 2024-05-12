@@ -19,36 +19,9 @@
   font-weight: 600;
 }
 
-.debts-container{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
 
-.debt-item{
-  margin-right: 10px;
-  margin-bottom: 30px;
-  padding: 20px;
-  width: 300px;
-  border: 1px solid #B8B8B8;
-  border-radius: 12px;
-  box-shadow: 2px 2px 2px 1px rgb(21, 21, 54,0.2);
-}
-
-.debt-item-header{
-  margin-bottom: 20px;
-  font-size: 20px;
-  font-weight: 600;
-  color: #434C63;
-}
-
-.debt-item-row{
-  margin-bottom: 10px;
-}
-
-.debt-span{
-  padding-right: 10px;
-  font-size: 16px;
-  font-weight: 400;
-  color: #8C8C8C;
+@media screen  and (max-width: 520px) {
+  .no-debts{
+    margin-top: 30px;
+  }
 }

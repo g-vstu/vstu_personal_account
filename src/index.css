@@ -87,6 +87,44 @@ a {
   width: 300px;
 }
 
+.debts-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.cart-item{
+  margin-right: 10px;
+  margin-bottom: 30px;
+  padding: 20px 15px 20px 20px;
+  width: 320px;
+  border: 1px solid #B8B8B8;
+  border-radius: 12px;
+  box-shadow: 2px 2px 2px 1px rgb(21, 21, 54,0.2);
+}
+
+.cart-item-header{
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #434C63;
+}
+
+.cart-item-row{
+  margin-bottom: 10px;
+}
+
+.cart-item-row:last-child{
+  margin-bottom: 0;
+}
+
+.cart-span{
+  padding-right: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #8C8C8C;
+}
+
 @media screen and (max-width: 1450px){
   .group-title {
     margin-right: 80px;
@@ -130,7 +168,6 @@ a {
   .content{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
   }
   .teacher-name-title {
@@ -152,6 +189,12 @@ a {
     font-size: 24px;
     line-height: 30px;
     color: #494A4A;
+  }
+
+  .cart-item{
+    margin-right: 0;
+    margin-bottom: 20px;
+
   }
 }
 

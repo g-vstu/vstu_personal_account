@@ -11,6 +11,8 @@ import {authReducer} from './authSlice';
 import {studentReducer} from './studentSlice';
 import {gradesReducer} from './gradeSlice';
 import {absencesReducer} from './absencesSlice';
+import {attendanceReducer} from './attendanceSlice';
+import {extraReducer} from "./extraSlice";
 
 const persistConfig = {
   key: 'root',
@@ -25,6 +27,8 @@ const rootReducer = combineReducers({
   selectsData: selectsDataReducer,
   grades: gradesReducer,
   absences: absencesReducer,
+  attendances: attendanceReducer,
+  extra: extraReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

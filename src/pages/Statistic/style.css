@@ -1,6 +1,7 @@
 .statistic-blocks{
   margin-bottom: 40px;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-evenly;
 }
@@ -47,4 +48,50 @@
   font-size: 18px;
   font-weight: 400;
   color: #a2a2a2;
+}
+
+.mobile-statistic{
+  display: none;
+}
+
+@media screen  and (max-width: 1160px) {
+  .statistic-block{
+    width: 300px;
+    height: 100px;
+  }
+
+  .grade{
+    font-size: 30px;
+    font-weight: 600;
+    color: #434C63;
+  }
+
+  .grade-description{
+    font-size: 16px;
+    font-weight: 400;
+    color: #a2a2a2;
+  }
+}
+
+@media screen  and (max-width: 670px) {
+  .statistic-block{
+    width: 400px;
+  }
+
+  .statistic-block:first-child{
+    margin-bottom: 20px;
+  }
+}
+
+@media screen  and (max-width: 520px) {
+  .mobile-statistic{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .statistic-block{
+    width: 320px;
+    height: 100px;
+  }
 }

@@ -14,14 +14,10 @@ import {MenuButton} from "../MenuButton";
 
 export const Header = ({userRole}) => {
   const userName = useSelector((state) => state.auth.userInfo.fio)
+  const userEmail = useSelector((state) => state.auth.userInfo.email);
 
   return (
     <header className="header">
-      <HeaderTitle
-        blockName="header-block-title"
-        logoImg="header-logo"
-        titleText="header-text"
-      />
       <Search
         blockClass="header-search-block"
         inputClass="header-search_input"
@@ -34,7 +30,7 @@ export const Header = ({userRole}) => {
           <img className="header-user_img" src={avatarIcon} alt="Avatar icon"/>
           <div className="header-user_info">
             <p>{shortenName(userName)}</p>
-            <p className="header-email">abazovskaya@mail.ru</p>
+            <p className="header-email">{userEmail}</p>
           </div>
         </div>
         <MenuButton userRole={userRole}/>

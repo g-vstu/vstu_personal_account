@@ -1,22 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 
-import { StudentNavButtons } from '../NavigationButtons/StudentNavButtons';
-import { TeacherNavButtons } from '../NavigationButtons/TeacherNavButtons';
+import {StudentNavButtons} from '../NavigationButtons/StudentNavButtons';
+import {TeacherNavButtons} from '../NavigationButtons/TeacherNavButtons';
 
-import open from '../../assets/images/headerIcons/open.svg';
+import {setMenuCondition} from '../../store/extraSlice';
+
 import './style.css';
 
 export const MenuButton = ({userRole}) => {
-  const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const isOpenMenu = useSelector((state) => state.extra.isOpenMenu);
+  const dispatch = useDispatch();
 
   const toggleMenu = () => {
-    setIsOpenMenu(!isOpenMenu);
+    dispatch(setMenuCondition(!isOpenMenu));
   };
 
   return (
     <>
       <button className="menu-btn" onClick={toggleMenu}>
-        <img src={open} alt="Open btn"/>
+        <div className={`menu-icon ${isOpenMenu ? 'open' : ''}`}></div>
       </button>
       <div className={`menu-block ${isOpenMenu === true ? 'active-block' : 'disable-block'}`}>
         {userRole === 0 ?

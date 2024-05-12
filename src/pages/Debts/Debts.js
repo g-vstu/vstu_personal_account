@@ -9,7 +9,7 @@ import {
   getCurrentYear,
   matchMonths,
   matchMonths2,
-  reverseDateForTable
+  reverseDateForTable, shortenName
 } from '../../assets/utils/functions';
 import {setMonth, setYear} from '../../store/absencesSlice';
 
@@ -34,7 +34,7 @@ const monthOptions = [
 export const Debts = () => {
   const absences = useSelector((state) => state.absences.absences);
   const month = useSelector((state) => state.absences.month);
-  // console.log(absences);
+   console.log(absences);
   // console.log(month);
 
   const [selectedMonth, setSelectedMonth] = useState(matchMonths(getCurrentMonth()));
@@ -45,14 +45,13 @@ export const Debts = () => {
 
   useEffect(()=>{
     const data=filterDebts(absences,selectedMonth,selectedYear);
-console.log('data',data)
     setFilteredDebts(data);
   },[absences,selectedMonth,selectedYear]);
 
   const filterDebts=(array,month,year)=>{
-    console.log(array);
-    console.log(matchMonths2(month).toUpperCase());
-    console.log(year);
+    // console.log(array);
+    // console.log(matchMonths2(month).toUpperCase());
+    // console.log(year);
     const foundItem = array.find(item => item.month === matchMonths2(month).toUpperCase() && item.year === year);
     return foundItem ? foundItem.absencesDTOS : [];
   }
@@ -98,27 +97,27 @@ console.log('data',data)
           ) : (
             <div className="debts-container">
               {filteredDebts.map((item, index) => (
-                <div key={index} className="debt-item">
-                  <h3 className="debt-item-header">{item.discipline}</h3>
-                  <div className="debt-item-row">
-                    <span className="debt-span">Пропущено часов:</span>
+                <div key={index} className="cart-item">
+                  <h3 className="cart-item-header">{item.discipline}</h3>
+                  <div className="cart-item-row">
+                    <span className="cart-span">Пропущено часов:</span>
                     {item.absenceTime}
                   </div>
-                  <div className="debt-item-row">
-                    <span className="debt-span">Дата пропуска:</span>
+                  <div className="cart-item-row">
+                    <span className="cart-span">Дата пропуска:</span>
                     {reverseDateForTable(item.date)}
                   </div>
-                  <div className="debt-item-row">
-                    <span className="debt-span">Тип занятия:</span>
+                  <div className="cart-item-row">
+                    <span className="cart-span">Тип занятия:</span>
                     {compareTypes(item.lessonType)}
                   </div>
-                  <div className="debt-item-row">
-                    <span className="debt-span">Причина пропуска:</span>
+                  <div className="cart-item-row">
+                    <span className="cart-span">Причина пропуска:</span>
                     {item.reasonMsg}
                   </div>
-                  <div className="debt-item-row">
-                    <span className="debt-span">ФИО преподавателя:</span>
-                    {item.teacher}
+                  <div className="cart-item-row">
+                    <span className="cart-span">ФИО преподавателя:</span>
+                    {shortenName(item.teacher)}
                   </div>
                 </div>
               ))}
