@@ -9,7 +9,8 @@ import {
   getCurrentYear,
   matchMonths,
   matchMonths2,
-  reverseDateForTable, shortenName
+  reverseDateForTable,
+  shortenName
 } from '../../assets/utils/functions';
 import {setMonth, setYear} from '../../store/absencesSlice';
 
@@ -34,26 +35,40 @@ const monthOptions = [
 export const Debts = () => {
   const absences = useSelector((state) => state.absences.absences);
   const month = useSelector((state) => state.absences.month);
-   console.log(absences);
+  console.log(absences);
   // console.log(month);
 
   const [selectedMonth, setSelectedMonth] = useState(matchMonths(getCurrentMonth()));
   const [selectedYear, setSelectedYear] = useState(getCurrentYear());
   const [filteredDebts, setFilteredDebts] = useState(null);
-
+  const [unpaidDebts, setUnpaidDebts] = useState(null);
+  console.log(unpaidDebts)
   const dispatch = useDispatch();
 
-  useEffect(()=>{
-    const data=filterDebts(absences,selectedMonth,selectedYear);
+  useEffect(() => {
+    const data = filterDebts(absences, selectedMonth, selectedYear);
     setFilteredDebts(data);
-  },[absences,selectedMonth,selectedYear]);
+    const unpaid = countUnpaidDebts(data)
+    setUnpaidDebts(unpaid);
+  }, [absences, selectedMonth, selectedYear]);
 
-  const filterDebts=(array,month,year)=>{
+  const filterDebts = (array, month, year) => {
     // console.log(array);
     // console.log(matchMonths2(month).toUpperCase());
     // console.log(year);
     const foundItem = array.find(item => item.month === matchMonths2(month).toUpperCase() && item.year === year);
     return foundItem ? foundItem.absencesDTOS : [];
+  }
+
+  const countUnpaidDebts = (items) => {
+    console.log(items);
+    return items.reduce((total, item) => {
+      if (item.printed === false && item.reasonMsg === "нет") {
+        return total + 1;
+      } else {
+        return total;
+      }
+    }, 0);
   }
 
   const yearOptions = [...new Set(absences.map(item => item.year))].map(year => ({
@@ -89,39 +104,46 @@ export const Debts = () => {
       </div>
       <div>
         <div>
-          { filteredDebts === null || filteredDebts.length === 0 ? (
+          {filteredDebts === null || filteredDebts.length === 0 ? (
             <div className="no-debts">
               <h2 className="no-debts-title">Долгов нет</h2>
               <img src={smile} alt="Smile"/>
             </div>
           ) : (
-            <div className="debts-container">
-              {filteredDebts.map((item, index) => (
-                <div key={index} className="cart-item">
-                  <h3 className="cart-item-header">{item.discipline}</h3>
-                  <div className="cart-item-row">
-                    <span className="cart-span">Пропущено часов:</span>
-                    {item.absenceTime}
+            <>
+              <h3>Количество неоплаченных пропусков: {unpaidDebts}</h3>
+              <div className="debts-container">
+                {filteredDebts.map((item, index) => (
+                  <div key={index} className="cart-item">
+                    <h3 className="cart-item-header">{item.discipline}</h3>
+                    <div className="cart-item-row">
+                      <span className="cart-span">Пропущено часов:</span>
+                      {item.absenceTime}
+                    </div>
+                    <div className="cart-item-row">
+                      <span className="cart-span">Дата пропуска:</span>
+                      {reverseDateForTable(item.date)}
+                    </div>
+                    <div className="cart-item-row">
+                      <span className="cart-span">Тип занятия:</span>
+                      {compareTypes(item.lessonType)}
+                    </div>
+                    <div className="cart-item-row">
+                      <span className="cart-span">Причина пропуска:</span>
+                      {item.reasonMsg}
+                    </div>
+                    <div className="cart-item-row">
+                      <span className="cart-span">Оплачено:</span>
+                      {item.printed == true ? 'Да' : 'Нет'}
+                    </div>
+                    <div className="cart-item-row">
+                      <span className="cart-span">ФИО преподавателя:</span>
+                      {shortenName(item.teacher)}
+                    </div>
                   </div>
-                  <div className="cart-item-row">
-                    <span className="cart-span">Дата пропуска:</span>
-                    {reverseDateForTable(item.date)}
-                  </div>
-                  <div className="cart-item-row">
-                    <span className="cart-span">Тип занятия:</span>
-                    {compareTypes(item.lessonType)}
-                  </div>
-                  <div className="cart-item-row">
-                    <span className="cart-span">Причина пропуска:</span>
-                    {item.reasonMsg}
-                  </div>
-                  <div className="cart-item-row">
-                    <span className="cart-span">ФИО преподавателя:</span>
-                    {shortenName(item.teacher)}
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            </>
           )}
         </div>
       </div>
